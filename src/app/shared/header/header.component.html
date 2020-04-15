@@ -12,7 +12,7 @@
       </svg>
     </label>
     <div class="ae-container-fluid rk-topbar">
-      <h1 class="rk-logo"><a [routerLink]="['']"  >urku portfolio<sup>tm</sup></a></h1>
+      <h1 class="rk-logo"><a [routerLink]="['']"  >{{_info.info.titulo}}<sup>tm</sup></a></h1>
       <nav class="rk-navigation">
         <ul class="rk-menu">
           <li routerLinkActive="router-link-active" class="rk-menu__item">
@@ -21,19 +21,24 @@
             </a>
           </li>
           <li class="rk-menu__item">
-            <a [routerLink]="['/about']" routerLinkActive="router-link-active"  class="rk-menu__link">
+            <a [routerLink]="['about']" routerLinkActive="router-link-active"  class="rk-menu__link">
               Contact Us
             </a>
           </li>
         </ul>
-        <form class="rk-search">
-          <input type="text" placeholder="Search" id="urku-search" class="rk-search-field">
+        <div class="rk-search">
+          <input type="text" 
+          placeholder="Buscar..."
+          (keyup.enter)="buscarProducto(txtBuscar.value)"
+          id="urku-search" 
+          class="rk-search-field"
+          #txtBuscar>
           <label for="urku-search">
             <svg>
               <use xlink:href="assets/img/symbols.svg#icon-search"></use>
             </svg>
           </label>
-        </form>
+        </div>
       </nav>
     </div>
   </header>
